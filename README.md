@@ -32,6 +32,8 @@
 <img src="https://img.icons8.com/color/48/000000/git.png"/>
 </div>
 <hr>
+
+<img align="right" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="408" height="318" />
 <h2 style='color:blue'>Github Goal:</h2>
 Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
 <img height="150em" src="https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
