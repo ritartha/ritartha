@@ -42,11 +42,6 @@ Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
 
 
 
-
-
-
-
-
 <hr>
 <h2 style='color:blue'>Active in:</h2>
 <div id="badges" height>
