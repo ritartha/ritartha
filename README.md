@@ -3,7 +3,7 @@
 
 
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
-<img align="right" alt="GIF" src = "https://i.pinimg.com/originals/04/eb/a4/04eba44b89ec18680db3a64e44f9c9e9.gif" width="408" height="318" />
+
 <div>
 🧑‍💻 I am Ritartha Chaki <br>
 🧠 On a journey to be more and more creative each day.<br>
@@ -65,3 +65,4 @@ Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
 ![isitors](https://visitor-badge.glitch.me/badge?page_id=ritartha.id)
 <br>
 Thank YOu For Visiting.🙏❤️️
+
