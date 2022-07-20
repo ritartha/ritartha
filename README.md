@@ -16,7 +16,7 @@
 <hr>
 
 
-<h2 style='color:blue'>Some of my Favourites:</h2>
+<h2 style='color:blue'>Favs:</h2>
 <div>
 <img src="https://img.icons8.com/color/48/000000/python--v1.png"/>
 <img src="https://img.icons8.com/fluency/48/000000/matlab.png"/>
@@ -30,7 +30,6 @@
 <img src="https://img.icons8.com/fluency/48/000000/jupyter.png"/>
 <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
 <img src="https://img.icons8.com/color/48/000000/git.png"/>
-
 </div>
 <hr>
 <h2 style='color:blue'>Github Goal:</h2>
