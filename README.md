@@ -12,7 +12,7 @@
 
 
 <h2 style='color:blue'>My Favs:</h2>
-
+<div>
 <img src="https://img.icons8.com/color/48/000000/python--v1.png"/>
 <img src="https://img.icons8.com/fluency/48/000000/matlab.png"/>
 <img src="https://img.icons8.com/color/48/000000/arduino.png"/>
@@ -21,7 +21,7 @@
 <img src="https://img.icons8.com/color/48/000000/numpy.png"/>
 <img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" height=25></img>
 <img src="https://pandas.pydata.org/static/img/favicon_white.ico" height=50></img>
-
+<div>
 
 <h2 style='color:blue'>Github Goal:</h2>
 My Aim is to make this below dashboard full with numbers other than 0 
