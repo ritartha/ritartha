@@ -7,7 +7,7 @@
 <div>
 🧑‍💻 I am Ritartha Chaki <br>
 🧠 On a journey to be more and more creative each day.<br>
-🏡 From **Siliguri, West Bengal**<br>
+🏡 From Siliguri, West Bengal<br>
 📧 ritartha@gmail.com <br>
 🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳
 </div>
