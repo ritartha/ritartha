@@ -3,7 +3,7 @@
 
 
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
-
+<img align="right" alt="GIF" src = "https://i.pinimg.com/originals/04/eb/a4/04eba44b89ec18680db3a64e44f9c9e9.gif" width="408" height="318" />
 <div>
 🧑‍💻 I am Ritartha Chaki <br>
 🧠 On a journey to be more and more creative each day.<br>
@@ -34,6 +34,7 @@
 <hr>
 
 <img align="right" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="408" height="318" />
+
 <h2 style='color:blue'>Github Goal:</h2>
 Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
 <img height="150em" src="https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
