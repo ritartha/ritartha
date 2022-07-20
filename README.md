@@ -1,7 +1,7 @@
 
 
 
-
+<img align="left" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
 
 <div>
@@ -34,6 +34,7 @@
 <hr>
 
 <img align="right" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="408" height="318" />
+
 
 <h2 style='color:blue'>Github Goal:</h2>
 Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
