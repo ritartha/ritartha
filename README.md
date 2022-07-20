@@ -20,7 +20,7 @@
 <img src="https://img.icons8.com/color/48/000000/tensorflow.png"/>
 <img src="https://img.icons8.com/color/48/000000/numpy.png"/>
 <img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" height=25></img>
-<img src="https://pandas.pydata.org/static/img/favicon_white.ico" height=50></img>
+<img src="https://pandas.pydata.org/static/img/favicon_white.ico" height=50 style='background-color:black'></img>
 <div>
 
 <h2 style='color:blue'>Github Goal:</h2>
