@@ -38,10 +38,10 @@
 
 <h2 style='color:blue'>Github Goal:</h2>
 Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
-This stat suddenly showing wrong info but the link used to get thisis working fine.<a href='https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true'>Click here</a>
+
 <p>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ritartha&exclude_repo=KNN-Image-Classification&show_icons=true&hide_border=true&layout=compact&langs_count=8"/>
+  <img height="150em" src="https://github-readme-stats.vercel.app/api?username=Ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true"  />
+  <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ritartha&exclude_repo=KNN-Image-Classification&show_icons=true&hide_border=true&layout=compact&langs_count=8"/>
 </p>
 
 <hr>
