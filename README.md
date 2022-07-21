@@ -4,8 +4,8 @@
 <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
 
+### 🧑‍💻 <samp>&gt; Hi there, I'm <a href="https://gkassym.netlify.app" target="_blank">Ritartha Chaki</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25"> </samp>
 <div>
-🧑‍💻 I am Ritartha Chaki <br>
 🧠 On a journey to be more and more creative each day.<br>
 🏡 From Siliguri, West Bengal<br>
 📧 ritartha@gmail.com <br>
@@ -38,9 +38,6 @@
 
 <h2 style='color:blue'>Github Goal:</h2>
 Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
-
-<img height="150em" src="https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true"/>
-
 
 
 <hr>
