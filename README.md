@@ -33,7 +33,7 @@
 </div>
 <hr>
 
-<img align="left" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="500" height="400" />
+<img align="left" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="450" height="318" />
 
 
 <h2 style='color:blue'>Github Goal:</h2>
