@@ -1,7 +1,7 @@
 
 
 
-<img align="left" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
+<img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
 
 <div>
@@ -33,7 +33,7 @@
 </div>
 <hr>
 
-<img align="right" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="408" height="318" />
+<img align="left" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="408" height="318" />
 
 
 <h2 style='color:blue'>Github Goal:</h2>
@@ -44,6 +44,7 @@ Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
 
 
 <hr>
+<br>
 <h2 style='color:blue'>Active in:</h2>
 <div id="badges" height>
   <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/">
