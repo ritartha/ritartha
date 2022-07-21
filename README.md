@@ -9,7 +9,8 @@
 <img src="https://github.com/ritartha/ritartha/blob/main/icons8-brain.gif" width="21" />  On a journey to be more and more creative each day.<br>
 <img src=https://github.com/ritartha/ritartha/blob/main/icons8-place-marker.gif width="21" /> From Siliguri, West Bengal<br>
   <img src="https://github.com/ritartha/ritartha/blob/main/icons8-gmail-logo.gif" width="21" /> ⇨ritartha@gmail.com <br>
-🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳
+
+## 🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳
 </div>
 
 
