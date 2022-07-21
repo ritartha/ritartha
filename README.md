@@ -4,11 +4,11 @@
 <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
 <h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
 
-### 🧑‍💻 <samp>&gt; Hi there, I'm <a href="https://gkassym.netlify.app" target="_blank">Ritartha Chaki</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25"> </samp>
+### 🧑‍💻 <samp>&gt; I'm <a href="https://gkassym.netlify.app" target="_blank">Ritartha Chaki</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="20"> </samp>
 <div>
-🧠 On a journey to be more and more creative each day.<br>
-🏡 From Siliguri, West Bengal<br>
-📧 ritartha@gmail.com <br>
+<img src="https://github.com/ritartha/ritartha/blob/main/icons8-brain.gif" width="21" />  On a journey to be more and more creative each day.<br>
+<img src=https://github.com/ritartha/ritartha/blob/main/icons8-place-marker.gif width="21" /> From Siliguri, West Bengal<br>
+  <img src="https://github.com/ritartha/ritartha/blob/main/icons8-gmail-logo.gif" width="21" /> ⇨ritartha@gmail.com <br>
 🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳
 </div>
 
