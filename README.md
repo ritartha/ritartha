@@ -37,7 +37,7 @@
 
 
 <h2 style='color:blue'>Github Goal:</h2>
-Eliminate all the 0's from ⬇️ and fill 📊 with numbers:
+Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
 <img height="150em" src="https://github-readme-stats.vercel.app/api?username=ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
 
 
