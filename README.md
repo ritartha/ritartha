@@ -65,5 +65,13 @@ Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
 
 ![isitors](https://visitor-badge.glitch.me/badge?page_id=ritartha.id)
 <br>
-Thank YOu For Visiting.🙏❤️️
 
+
+<img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
+</p>
+Thank YOu For Visiting.🙏❤️️
+  <p align="right">  
+   <a href="https://drive.google.com/uc?export=view&id=17i8padf5lDuR0w0Om3ZzxWOK6xAotLTy">
+      <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
+      <img alt="My Resume" src="https://github.com/ritartha/ritartha/blob/main/clipart3085721.png" height=auto width='20' />
+    </a></p>
