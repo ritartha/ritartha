@@ -69,7 +69,7 @@ Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
 
 <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
 </p>
-Thank YOu For Visiting.🙏❤️️
+Thank You For Visiting.🙏❤️️
   <p align="right">  
    <a href="https://drive.google.com/uc?export=view&id=17i8padf5lDuR0w0Om3ZzxWOK6xAotLTy">
       <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
