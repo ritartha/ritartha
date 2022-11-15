@@ -33,7 +33,7 @@
 <img src="https://img.icons8.com/color/48/000000/git.png"/>
 <img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
 <img src="https://img.icons8.com/nolan/48/react-native.png"/>
-<img src="https://labviewwiki.org/w/images/thumb/9/9f/LV2020.png/256px-LV2020.png" height=25></img>
+<img src="https://labviewwiki.org/w/images/thumb/9/9f/LV2020.png/256px-LV2020.png" height=48></img>
 </div>
 <hr>
 
