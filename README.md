@@ -23,21 +23,24 @@
 
 <div align="left">
 
-```js
-/**
- * Represents me.
- *
- * @constructor
- * @param {string} name - Ritartha Chaki 
- * @param {string} location - Siliguri, West Bengal, India
- * @param {string} languagues - English, Hindi, Bengali & Gibberish😆.
- * @param {string} Work - Project Associate - II, NISER
- * @param {string} Second Interest - Coding & 3D Modelling 🦘.
- * @param {string} hobbies - Painting & Photography
- * @param {string} education - M.Tech(Control Systems)
+```python
+class RitarthaChaki:
+    """
+    Represents me.
+    """
 
- * @returns {Object} Creative & Fun Projects
- */
+    def __init__(self):
+        self.name = "Ritartha Chaki"
+        self.location = "Siliguri, West Bengal, India"
+        self.languages = ["English", "Hindi", "Bengali", "Gibberish 😆"]
+        self.work = "Project Associate – II, NISER"
+        self.interests = ["Coding", "3D Art 🦘"]
+        self.hobbies = ["Painting", "Photography","Travelling"]
+        self.education = "M.Tech (Control Systems)"
+
+    def __repr__(self):
+        return "Creativity"
+
 ```
 
 </div>
