@@ -44,7 +44,7 @@
 
 </details>
 
-<details>
+<div>
 <summary>
   <img src="https://img.shields.io/badge/🛠️_Tools_&_Technologies-10B981?style=for-the-badge&logo=stackshare&logoColor=white" alt="Tools"/>
 </summary>
@@ -96,20 +96,11 @@
   </kbd>
   </p>
 </div>
-</details>
+</div>
 
-<details>
-<summary>
-  <img src="https://img.shields.io/badge/📊_GitHub_Stats-F59E0B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Stats"/>
-</summary>
 
-<br>
-  <p align="center">
-    <img align="center" src="https://github-readme-stats.vercel.app/api?username=anyahritvik&show_icons=true\&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage" alt="GitHub Stats">
-  </p>
-</details>
 
-<details>
+<div>
 <summary>
   <img src="https://img.shields.io/badge/💭_Inspirational_Quote-EC4899?style=for-the-badge&logo=inspircd&logoColor=white" alt="Quote"/>
 </summary>
@@ -119,7 +110,7 @@
     "The mind is everything. What you think, you become"
     <br><strong> <img width="30px" src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/external-buddha-buddhism-icongeek26-outline-gradient-icongeek26.png"  alt="jupiter" title="Jupyter"/></strong>
   </blockquote>
-</details>
+</div>
 
 </details>
 
