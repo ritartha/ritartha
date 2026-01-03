@@ -157,7 +157,7 @@ class Myself:
 
 <br>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&text=Happy%20Coding!&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=65" alt="Footer Wave"/>
+<img src="https://private-user-images.githubusercontent.com/74038190/371756373-fddcdbcd-5ea2-4416-9f59-ca7fd9394aca.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc0NDkwNDMsIm5iZiI6MTc2NzQ0ODc0MywicGF0aCI6Ii83NDAzODE5MC8zNzE3NTYzNzMtZmRkY2RiY2QtNWVhMi00NDE2LTlmNTktY2E3ZmQ5Mzk0YWNhLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAxMDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMTAzVDEzNTkwM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkzOTY3MjIzOGZhZDRiZDc0YzkwNzRmMmFjMzNjOTU3YTk0MWMxN2I2NjkwNDVlZTJkMDQ5ZTZjMmNkODI3NjgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.El3d3gqc71amhQHCZFNFNbJlEQZlSmfmpmUho0ygajk" alt="Footer Wave"/>
 
 </div>
 
