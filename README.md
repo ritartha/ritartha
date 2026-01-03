@@ -150,8 +150,8 @@ class Myself:
 <p align = "center">
 	<img src = "https://komarev.com/ghpvc/?username=anyahritvik&style=plastic&color=blueviolet" alt = "Profile Views"/>
 </p>
-<img src="https://img.shields.io/github/followers/anyahritvik?style=social" alt="Followers"/> 
-<img src="https://img.shields.io/github/stars/anyahritvik?style=social" alt="Stars"/>
+<img src="https://img.shields.io/github/followers/ritartha?style=social" alt="Followers"/> 
+<img src="https://img.shields.io/github/stars/ritartha?style=social" alt="Stars"/>
 
 <br>
 
