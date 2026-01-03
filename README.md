@@ -129,8 +129,8 @@
 
 <div align="center">
   <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white
-    " alt="Linkedin"/>
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white"
+     alt="Linkedin"/>
   </a>
   <a href="https://www.facebook.com/Ritartha/" target="_blank">
     <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook"/>
