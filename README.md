@@ -121,7 +121,7 @@ class Myself:
 
 <div align="center">
   <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white"
+    <img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif"
      alt="Linkedin"/>
   </a>
   <a href="https://www.facebook.com/Ritartha/" target="_blank">
