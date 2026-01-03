@@ -125,16 +125,16 @@ class Myself:
      alt="Linkedin"/>
   </a>
   <a href="https://www.facebook.com/Ritartha/" target="_blank">
-    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook"/>
+    <imgwidth="48px"  src="https://user-images.githubusercontent.com/74038190/235294010-ec412ef5-e3da-4efa-b1d4-0ab4d4638755.gif" alt="Facebook"/>
   </a>
   <a href="https://www.instagram.com/ritartha/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram"/>
+    <img width="48px" src="https://user-images.githubusercontent.com/74038190/235294013-a33e5c43-a01c-43f6-b44d-a406d8b4ab75.gif" alt="Instagram"/>
   </a>
   <a href="https://discord.com/users/654770503508295722" target="_blank">
-    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/>
+    <img width="48px" src="[https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white](https://user-images.githubusercontent.com/74038190/235294015-47144047-25ab-417c-af1b-6746820a20ff.gif)" alt="Discord"/>
   </a>
     <a href="mailto:ritartha@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=Gmail&logoColor=white" alt="GMail"/>
+    <img width="48px" src="https://raw.githubusercontent.com/ritartha/ritartha/refs/heads/main/icons8-gmail-logo.gif" alt="GMail"/>
   </a>
 </div>
 
