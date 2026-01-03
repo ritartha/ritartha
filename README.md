@@ -121,7 +121,7 @@ class Myself:
 
 <div align="center">
   <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/" target="_blank">
-    <img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif"
+    <img width="48px" src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif"
      alt="Linkedin"/>
   </a>
   <a href="https://www.facebook.com/Ritartha/" target="_blank">
@@ -148,7 +148,7 @@ class Myself:
 <img src="https://img.shields.io/badge/Thanks_for_visiting!-Come_back_soon-blueviolet?style=for-the-badge" alt="Thanks"/>
 <br>
 <p align = "center">
-	<img src = "https://komarev.com/ghpvc/?username=anyahritvik&style=plastic&color=blueviolet" alt = "Profile Views"/>
+	<img src = "https://komarev.com/ghpvc/?username=ritarthak&style=plastic&color=blueviolet" alt = "Profile Views"/>
 </p>
 <img src="https://img.shields.io/github/followers/ritartha?style=social" alt="Followers"/> 
 <img src="https://img.shields.io/github/stars/ritartha?style=social" alt="Stars"/>
