@@ -134,7 +134,7 @@ class Myself:
     <img width="48px" src="https://user-images.githubusercontent.com/74038190/235294015-47144047-25ab-417c-af1b-6746820a20ff.gif" alt="Discord"/>
   </a>
     <a href="mailto:ritartha@gmail.com" target="_blank">
-    <img width="48px" src="https://raw.githubusercontent.com/ritartha/ritartha/refs/heads/main/icons8-gmail-logo.gif" alt="GMail"/>
+    <img width="48px" src="https://raw.githubusercontent.com/anyahritvik/anyahritvik/refs/heads/main/mail.gif" alt="GMail"/>
   </a>
 </div>
 
