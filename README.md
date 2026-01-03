@@ -60,7 +60,7 @@ class RitarthaChaki:
       <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="cpp" title="C++" /> 
       <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="js" title="Javascript"/> 
       <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="py" title="Python"/> 
-	  <img width="30px" src="https://github.com/anyahritvik/anyahritvik/blob/main/SL-LOGO.png" alt="lsl" title="LSL"/> 
+	  <img width="30px" src="https://img.icons8.com/fluency/48/matlab.png" alt="lsl" title="MATLAB"/> 
     </kbd>
     <kbd>
       <kbd>Front-end</kbd>
