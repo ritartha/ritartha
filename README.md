@@ -8,13 +8,13 @@
 
 <div align="center">
 
-<details>
+<div>
 <summary>
   <img src="https://img.shields.io/badge/👤_Open_Profile-8B5CF6?style=for-the-badge&logo=github&logoColor=white" alt="Open Profile"/>
 </summary>
 
 <br>
-<details>
+</div>
 <summary>
   <img src="https://img.shields.io/badge/📖_About_Me-3B82F6?style=for-the-badge&logo=readme&logoColor=white" alt="About Me"/>
 </summary>
