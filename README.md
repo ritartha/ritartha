@@ -1,79 +1,181 @@
+  <div align=center>
+      <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?font=VT323&size=35&duration=3500&pause=300&color=FFFB00&center=true&vCenter=true&width=500&lines=Hey%2C+I+am+Ritartha+Chaki;Welcome+to+My+GitHub+Profile" alt="Typing SVG" /></a>
+  </div>
 
-
-
-<img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/AI.gif" width="408" height="408" />
-<h2 style='color:blue'>About <span style='color:green'>Me</span>:</h2>
-
-### 🧑‍💻 <samp>&gt; I'm <a href="https://github.com/ritartha" target="_blank">Ritartha Chaki</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="20"> </samp>
-<div>
-<img src="https://github.com/ritartha/ritartha/blob/main/icons8-brain.gif" width="21" />  On a journey to be more and more creative each day.<br>
-<img src=https://github.com/ritartha/ritartha/blob/main/icons8-place-marker.gif width="21" /> From Siliguri, West Bengal<br>
-  <img src="https://github.com/ritartha/ritartha/blob/main/icons8-gmail-logo.gif" width="21" /> ⇨ <a href='https://mail.google.com/mail/u/0/#inbox'>𝚛𝚒𝚝𝚊𝚛𝚝𝚑𝚊@𝚐𝚖𝚊𝚒𝚕.𝚌𝚘𝚖</a> <br>
-
-## 🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳
-</div>
-
-
-<hr>
-
-
-<h2 style='color:blue'>Favs:</h2>
-<div>
-<img src="https://img.icons8.com/color/48/000000/python--v1.png"/>
-<img src="https://img.icons8.com/fluency/48/000000/matlab.png"/>
-<img src="https://img.icons8.com/color/48/000000/arduino.png"/>
-<img src="https://img.icons8.com/color/48/000000/raspberry-pi.png"/>
-<img src="https://img.icons8.com/color/48/000000/tensorflow.png"/>
-<img src="https://img.icons8.com/color/48/000000/numpy.png"/>
-<img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" height=25></img>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAAEDCAMAAABQ/CumAAAAeFBMVEX///8TB1QAAEb/ygDnBIgPAFLNzNYTAFnQ0NgMAFcAAETb2eP39/oUBlfV1N7/xwDmAID/9tfLydcjG17/4Yz//vbCwM3ykcL61OfoBIwyKmgAADYAAE0AAErx8PTIxdT/+un/34T85/Lyir/lAHv50eX+9fkpH2Ma8J+4AAACEklEQVR4nO3dzVIaQRSAUYNCEIGoiYmJivnP+79hFrmLVHELZ6pnmG483xqaPruh5lb32ZkkSZIkSZIkvb52z7dZU2+rT4uH2X6rx6m31afF7M1+87dTb6tPCDWEUEMINYRQQ5MS1tu0nqtMSrhKn26e1v1WmZawyn58g4DQL4QIoSyECKEshAihLIQIoSyECKEshAihLIQIoSyECKEshAihLIQIoSyECOFA6cvM5a4nYb29yjoO4WmVvM58WPQkbF8e+RqPcDlPVp4t+xLS/W0QEBCqI8yTLpsizN8n/WmJ0CEEBAQEBAQEBIT2CF+/fci6a4hw8y7rvC3CeRYCAgICAgICAgICAgICwlCEtJYIdzdp/3+kdkKHToFQ+RjJMCEcCKF7CAdC6B7CgRC6Nylh9zGtJUJ6uNCsnsOFhhkvPAHC9x+fsloi/Pp5nXTREuH++iLpMwICAgICAgICAgICAgKC/87R7/u0lggdQkBAQEBAQEB4dYQON67UTqh9KuwkDlRBQED4R8gOF5o3Rdh8yepLGO0ez6MNPO+WQ9w3NilhvBAihLIQIoSyECKEshAihLIQIoSyECKEshAihLIQIoSyECKEshAihLIQIoSyEKJt+lL0SNeADUR4TG9cGWXHew10AkPP4aRBO9ohEuOFUEMINYRQQwg1dAKEDvd41t5t2u7lL0qSJEmSJEnSyfUXeomSFq0EzbkAAAAASUVORK5CYII=" height=50></img>
-<img src="https://img.icons8.com/fluency/48/000000/spyder-ide.png"/>
-<img src="https://img.icons8.com/fluency/48/000000/jupyter.png"/>
-<img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
-<img src="https://img.icons8.com/color/48/000000/git.png"/>
-<img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
-<img src="https://img.icons8.com/nolan/48/react-native.png"/>
-<img src="https://labviewwiki.org/w/images/thumb/9/9f/LV2020.png/256px-LV2020.png" height=48></img>
-</div>
-<hr>
-
-<img align="left" alt="GIF" src="https://github.com/Gapur/Gapur/blob/main/assets/coding.gif?raw=true" width="450" height="318" />
-
-
-<h2 style='color:blue'>Github Goal:</h2>
-Eliminate all the 0️⃣s from ⬇️ and fill 📊 with numbers:
-
-<p>
-  <img height="150em" src="https://github-readme-stats.vercel.app/api?username=Ritartha&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true"  />
-  <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ritartha&exclude_repo=KNN-Image-Classification&show_icons=true&hide_border=true&layout=compact&langs_count=8"/>
+<p align = "center">
+	<img src = "https://github.com/7oSkaaa/7oSkaaa/blob/output/github-contribution-grid-snake.svg?" alt = "Snake Game"/>
 </p>
 
-<hr>
+<div align="center">
+
+<details>
+<summary>
+  <img src="https://img.shields.io/badge/👤_Open_Profile-8B5CF6?style=for-the-badge&logo=github&logoColor=white" alt="Open Profile"/>
+</summary>
+
 <br>
-<h2 style='color:blue'>Active in:</h2>
-<div id="badges" height>
-  <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/">
-    <img src="https://icons.iconarchive.com/icons/lunartemplates/modern-social-media-rounded/64/LinkedIn-icon.png" alt="LinkedIn Badge"/ height=50>
+<div>
+  <div align=center>
+      <img height="200" alt="Avatar photo of RD" src="https://github.com/anyahritvik/anyahritvik/blob/main/Iconarchive-Robot-Avatar-Yellow-5-Minion.512.png" alt="Avatar photo of RD">
+  </div>
+
+</div>
+
+<details>
+<summary>
+  <img src="https://img.shields.io/badge/📖_About_Me-3B82F6?style=for-the-badge&logo=readme&logoColor=white" alt="About Me"/>
+</summary>
+
+[//]: # (You must have a lf before the markdown element when inside a block for it to work: https://stackoverflow.com/questions/29368902/how-can-i-wrap-my-markdown-in-an-html-div)
+
+<div align="left">
+
+```js
+/**
+ * Represents me.
+ *
+ * @constructor
+ * @param {string} name - Ritartha Chaki 
+ * @param {string} location - Siliguri, West Bengal, India
+ * @param {string} languagues - English, Hindi, Bengali & Gibberish😆.
+ * @param {string} Work - Project Associate - II, NISER
+ * @param {string} Second Interest - Coding & 3D Modelling 🦘.
+ * @param {string} hobbies - Painting & Photography
+ * @param {string} education - M.Tech(Control Systems)
+
+ * @returns {Object} Creative & Fun Projects
+ */
+```
+
+</div>
+
+</details>
+
+<details>
+<summary>
+  <img src="https://img.shields.io/badge/🛠️_Tools_&_Technologies-10B981?style=for-the-badge&logo=stackshare&logoColor=white" alt="Tools"/>
+</summary>
+
+<br>
+<div>
+  <p style="display: inline-block;" align="center">
+    <kbd>
+      <kbd>Programming Languages</kbd>
+      <br>
+      <br>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="cpp" title="C++" /> 
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="js" title="Javascript"/> 
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="py" title="Python"/> 
+	  <img width="30px" src="https://github.com/anyahritvik/anyahritvik/blob/main/SL-LOGO.png" alt="lsl" title="LSL"/> 
+    </kbd>
+    <kbd>
+      <kbd>Front-end</kbd>
+      <br>
+      <br>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="html" title="HTML"/> 
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" alt="css" title="CSS"/>  
+    </kbd>
+ <kbd>
+      <kbd>Automation, Data Science & AI</kbd>
+      <br>
+      <br>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="numpy" title="Numpy"/>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="pandas" title="Pandas"/>
+      <img width="30px" src="https://img.icons8.com/color/48/tensorflow.png" alt="chatgpt" title="Tensorflow"/>
+    </kbd>
+    <kbd>
+      <kbd>Design & 3D Modelling Tools</kbd>
+      <br>
+      <br>
+      <img width="30px" src="https://img.icons8.com/color/48/blender-3d.png" alt="bash" title="Blender"/>
+      <img width="30px" src="https://img.icons8.com/nolan/64/substance-painter.png" alt="vim" title="Substance Painter"/>
+	  <img width="30px" src="https://img.icons8.com/color/48/zbrush.png" alt="vim" title="ZBrush"/>
+	  <img width="30px" src="https://img.icons8.com/color/48/adobe-illustrator--v1.png" alt="vim" title="Adobe Illustrator"/>
+	 <img width="30px" src="https://img.icons8.com/color/48/adobe-photoshop--v1.png" alt="vim" title="Adobe Photoshop"/>
+    </kbd>
+    <kbd>
+      <kbd>My Fav IDEs</kbd>
+      <br>
+      <br>
+      <img width="30" src="https://img.icons8.com/fluency/48/spyder-ide-5.png" alt="Xcode" title="Spyder"/>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  alt="VSCode" title="VS Code"/>
+      <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"  alt="jupyter" title="Jupyter"/>
+  </kbd>
+  </p>
+</div>
+</details>
+
+<details>
+<summary>
+  <img src="https://img.shields.io/badge/📊_GitHub_Stats-F59E0B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Stats"/>
+</summary>
+
+<br>
+  <p align="center">
+    <img align="center" src="https://github-readme-stats.vercel.app/api?username=anyahritvik&show_icons=true\&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage" alt="GitHub Stats">
+  </p>
+</details>
+
+<details>
+<summary>
+  <img src="https://img.shields.io/badge/💭_Inspirational_Quote-EC4899?style=for-the-badge&logo=inspircd&logoColor=white" alt="Quote"/>
+</summary>
+
+<br>
+  <blockquote>
+    "The mind is everything. What you think, you become"
+    <br><strong> <img width="30px" src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/external-buddha-buddhism-icongeek26-outline-gradient-icongeek26.png"  alt="jupiter" title="Jupyter"/></strong>
+  </blockquote>
+</details>
+
+</details>
+
+<br>
+
+## 🌐 Connect With Me
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/ritartha-chaki-bab62ba8/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white
+    " alt="Linkedin"/>
   </a>
-  <a href="https://www.facebook.com/Ritartha/">
-    <img src="https://icons.iconarchive.com/icons/lunartemplates/modern-social-media-rounded/64/Facebook-icon.png"height=50 alt="Facebook Badge"/>
+  <a href="https://www.facebook.com/Ritartha/" target="_blank">
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=Facebook&logoColor=white" alt="Facebook"/>
   </a>
-  <a href="https://www.instagram.com/ritartha/">
-    <img src="https://icons.iconarchive.com/icons/lunartemplates/modern-social-media-rounded/64/Instagram-icon.png"height=50 alt="Twitter Badge"/>
+  <a href="https://www.instagram.com/ritartha/" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white
+    " alt="Instagram"/>
+  </a>
+  <a href="https://discord.com/users/654770503508295722" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/>
+  </a>
+    <a href="mailto:ritartha@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=Gmail&logoColor=white
+    " alt="GMail"/>
   </a>
 </div>
-<hr>
 
-![isitors](https://visitor-badge.glitch.me/badge?page_id=ritartha.id)
+</div>
+
+
+<div align="center">
+
+### ✨ Made with 💜 by [Ritartha Chaki](https://github.com/ritartha)
+
+<img src="https://img.shields.io/badge/Thanks_for_visiting!-Come_back_soon-blueviolet?style=for-the-badge" alt="Thanks"/>
 <br>
-Thank You For Visiting.🙏❤️️
-<!--
-<img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
+<p align = "center">
+	<img src = "https://komarev.com/ghpvc/?username=anyahritvik&style=plastic&color=blueviolet" alt = "Profile Views"/>
 </p>
+<img src="https://img.shields.io/github/followers/anyahritvik?style=social" alt="Followers"/> 
+<img src="https://img.shields.io/github/stars/anyahritvik?style=social" alt="Stars"/>
 
+<br>
 
-  <p align="right">  
-   <a href="https://drive.google.com/uc?export=view&id=17i8padf5lDuR0w0Om3ZzxWOK6xAotLTy">
-      <img align="right" alt="GIF" src="https://github.com/ritartha/ritartha/blob/main/icons8-download.gif" height=auto width='20'/>
-      <img alt="My Resume" src="https://github.com/ritartha/ritartha/blob/main/clipart3085721.png" height=auto width='20' />
-    </a></p> -->
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&text=Happy%20Coding!&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=65" alt="Footer Wave"/>
+
+</div>
+
+</div>
