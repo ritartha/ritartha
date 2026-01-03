@@ -14,13 +14,6 @@
 </summary>
 
 <br>
-<div>
-  <div align=center>
-      <img height="200" alt="Avatar photo of RD" src="https://github.com/anyahritvik/anyahritvik/blob/main/Iconarchive-Robot-Avatar-Yellow-5-Minion.512.png" alt="Avatar photo of RD">
-  </div>
-
-</div>
-
 <details>
 <summary>
   <img src="https://img.shields.io/badge/📖_About_Me-3B82F6?style=for-the-badge&logo=readme&logoColor=white" alt="About Me"/>
