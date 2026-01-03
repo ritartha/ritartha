@@ -22,7 +22,7 @@
 <div align="left">
 
 ```python
-class RitarthaChaki:
+class Myself:
     """
     Represents me.
     """
