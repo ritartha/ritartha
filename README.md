@@ -71,6 +71,12 @@ class Myself:
 	<img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" title="JavaScript"/>
 <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="threejs" title="Three.js"/>
     </kbd>
+
+	<kbd>Back-end</kbd>
+      <br>
+      <br>
+<img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="django" title="Django"/>
+    </kbd>
  <kbd>
       <kbd>Automation, Data Science & AI</kbd>
       <br>
