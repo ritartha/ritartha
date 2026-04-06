@@ -429,6 +429,16 @@
 </div>
 
 <script>
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+const EPSILON = 1e-10;         // floating-point near-zero threshold
+const FRAC_TOLERANCE = 1e-7;   // tolerance for fraction search
+const MAX_FRAC_DENOM = 1000;   // maximum denominator when converting to fraction
+// 170! is the largest factorial representable as a JS float before Infinity
+const MAX_FACTORIAL = 170;
+// Limit integer-power fast-path to avoid excessively long loops
+const MAX_FAST_POW = 1000;
+const MAX_HISTORY = 50;        // maximum stored history entries
+
 // ─── STATE ────────────────────────────────────────────────────────────────────
 let expr = '';
 let result = '0';
@@ -469,7 +479,7 @@ class Complex {
     );
   }
   pow(b) {
-    if (b.im === 0 && Number.isInteger(b.re) && Math.abs(b.re) <= 1000) {
+    if (b.im === 0 && Number.isInteger(b.re) && Math.abs(b.re) <= MAX_FAST_POW) {
       let result = new Complex(1, 0);
       let n = Math.abs(b.re);
       for (let i = 0; i < n; i++) result = result.mul(this);
@@ -484,7 +494,7 @@ class Complex {
   }
   toString() {
     const fmt = n => {
-      if (Math.abs(n) < 1e-10) return '0';
+      if (Math.abs(n) < EPSILON) return '0';
       let s = parseFloat(n.toPrecision(10)).toString();
       return s;
     };
@@ -499,7 +509,7 @@ class Complex {
 // ─── MATH HELPERS ─────────────────────────────────────────────────────────────
 function factorial(n) {
   n = Math.round(n);
-  if (n < 0 || n > 170) return NaN;
+  if (n < 0 || n > MAX_FACTORIAL) return NaN;
   if (n <= 1) return 1;
   let r = 1;
   for (let i = 2; i <= n; i++) r *= i;
@@ -526,8 +536,8 @@ function lcm(a, b) {
 }
 
 function toFraction(decimal) {
-  let tolerance = 1e-7;
-  let maxDenom = 1000;
+  let tolerance = FRAC_TOLERANCE;
+  let maxDenom = MAX_FRAC_DENOM;
   let negative = decimal < 0;
   decimal = Math.abs(decimal);
   let intPart = Math.floor(decimal);
@@ -700,7 +710,10 @@ function evaluateExpr(rawExpr) {
   let closes = (e.match(/\)/g) || []).length;
   for (let i = 0; i < opens - closes; i++) e += ')';
 
-  // Evaluate
+  // Evaluate — input is entirely user-generated from calculator button presses.
+  // All special functions have already been resolved to numeric literals above,
+  // so the string reaching Function() contains only arithmetic operators, numbers,
+  // and Math.* calls; no raw user text is passed through unprocessed.
   try {
     // eslint-disable-next-line no-new-func
     let val = Function('"use strict"; return (' + e + ')')();
@@ -721,7 +734,7 @@ function evaluate1(s) {
 }
 
 function fmtPol(n) {
-  if (Math.abs(n) < 1e-10) return '0';
+  if (Math.abs(n) < EPSILON) return '0';
   return parseFloat(n.toPrecision(8)).toString();
 }
 
@@ -1114,7 +1127,7 @@ function calculate() {
 
     // History
     history.push({ expr: expr, result: displayVal });
-    if (history.length > 50) history.shift();
+    if (history.length > MAX_HISTORY) history.shift();
     histIdx = history.length; // point past end
 
     document.getElementById('history-line').textContent = expr + ' =';
