@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Calculator</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 10px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  .calculator {
+    background: #1a1a2e;
+    border-radius: 18px;
+    padding: 18px 16px 20px;
+    width: 420px;
+    max-width: 100%;
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.15), 0 0 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+    border: 1px solid #2a2a4a;
+  }
+
+  /* Brand bar */
+  .brand-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+  .brand-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #00ff41;
+    text-shadow: 0 0 8px #00ff41;
+    text-transform: uppercase;
+  }
+  .model-name {
+    font-size: 10px;
+    color: #556;
+    letter-spacing: 1px;
+  }
+
+  /* DISPLAY */
+  .display {
+    background: #0a1a0a;
+    border-radius: 10px;
+    padding: 10px 14px 12px;
+    margin-bottom: 14px;
+    border: 1px solid #1a3a1a;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.6), 0 0 12px rgba(0,255,65,0.05);
+    min-height: 100px;
+    position: relative;
+  }
+
+  .mode-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    min-height: 18px;
+    align-items: center;
+  }
+  .mode-indicator {
+    font-size: 10px;
+    color: #00ff41;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border: 1px solid rgba(0,255,65,0.3);
+    border-radius: 3px;
+    opacity: 0.5;
+    transition: opacity 0.15s, box-shadow 0.15s;
+  }
+  .mode-indicator.active {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(0,255,65,0.5);
+    background: rgba(0,255,65,0.08);
+  }
+
+  .expr-line {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #44bb44;
+    min-height: 20px;
+    word-break: break-all;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    letter-spacing: 0.3px;
+  }
+  .expr-line::-webkit-scrollbar { display: none; }
+
+  .result-line {
+    font-family: 'Courier New', monospace;
+    font-size: 26px;
+    color: #00ff41;
+    text-align: right;
+    min-height: 36px;
+    word-break: break-all;
+    text-shadow: 0 0 10px rgba(0,255,65,0.6);
+    letter-spacing: 0.5px;
+    transition: font-size 0.1s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .result-line.small { font-size: 18px; }
+  .result-line.xsmall { font-size: 14px; }
+
+  .cursor-blink {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: #00ff41;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 1px;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* BUTTON GRID */
+  .btn-section { margin-bottom: 6px; }
+
+  .btn-row {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  .btn-row.cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .btn-row.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .btn-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .btn-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .separator { height: 1px; background: rgba(0,255,65,0.1); margin: 6px 0; }
+
+  /* BASE sub-panel */
+  .base-panel {
+    display: none;
+    margin-bottom: 5px;
+  }
+  .base-panel.visible { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; }
+
+  /* BUTTONS */
+  button {
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.12s ease;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.1s;
+    border-radius: 7px;
+  }
+  button:active::after { background: rgba(255,255,255,0.08); }
+
+  /* Mode / Row A buttons */
+  .btn-mode {
+    background: #16213e;
+    color: #7799cc;
+    font-size: 10px;
+    padding: 7px 2px;
+    border: 1px solid #2a3a5a;
+    letter-spacing: 0.3px;
+  }
+  .btn-mode:hover { background: #1e2d52; color: #aaccff; border-color: #4466aa; box-shadow: 0 0 8px rgba(100,150,255,0.2); }
+  .btn-mode.toggled { background: #1e2d52; color: #00ff41; border-color: #00ff41; box-shadow: 0 0 10px rgba(0,255,65,0.3); }
+
+  /* Scientific buttons (rows B-G) */
+  .btn-sci {
+    background: #141428;
+    color: #aabbdd;
+    font-size: 11px;
+    padding: 8px 3px;
+    border: 1px solid #252540;
+  }
+  .btn-sci:hover { background: #1c1c3a; color: #ddeeff; border-color: #3344aa; box-shadow: 0 0 8px rgba(50,80,200,0.2); }
+  .btn-sci.toggled { background: #0a0a20; color: #00ff41; border-color: #00aa33; box-shadow: 0 0 8px rgba(0,255,65,0.3); }
+
+  /* Number buttons */
+  .btn-num {
+    background: #1e1e2e;
+    color: #e0e0ff;
+    font-size: 17px;
+    padding: 12px 4px;
+    border: 1px solid #303050;
+  }
+  .btn-num:hover { background: #252540; color: #ffffff; border-color: #00ff41; box-shadow: 0 0 10px rgba(0,255,65,0.2); }
+
+  /* Operator buttons */
+  .btn-op {
+    background: #0a2a1a;
+    color: #00cc33;
+    font-size: 18px;
+    padding: 12px 4px;
+    border: 1px solid #0d4422;
+  }
+  .btn-op:hover { background: #0d3a22; color: #00ff41; border-color: #00ff41; box-shadow: 0 0 12px rgba(0,255,65,0.35); }
+
+  /* Equals button */
+  .btn-equals {
+    background: linear-gradient(145deg, #00cc33, #009922);
+    color: #000;
+    font-size: 20px;
+    padding: 12px 4px;
+    border: 1px solid #00ff41;
+    font-weight: 800;
+    grid-column: span 2;
+    box-shadow: 0 0 15px rgba(0,255,65,0.3);
+  }
+  .btn-equals:hover { background: linear-gradient(145deg, #00ff41, #00cc33); box-shadow: 0 0 25px rgba(0,255,65,0.6); transform: translateY(-1px); }
+  .btn-equals:active { transform: translateY(0); }
+
+  /* Utility (AC, backspace) */
+  .btn-util {
+    background: #2a1a1a;
+    color: #ff6655;
+    font-size: 13px;
+    padding: 10px 4px;
+    border: 1px solid #4a2222;
+  }
+  .btn-util:hover { background: #3a2020; color: #ff8877; border-color: #ff5544; box-shadow: 0 0 10px rgba(255,80,60,0.3); }
+
+  .btn-ac {
+    background: #2a1a1a;
+    color: #ff4433;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 10px 4px;
+    border: 1px solid #5a1a1a;
+  }
+  .btn-ac:hover { background: #3a0a0a; color: #ff6655; border-color: #ff3322; box-shadow: 0 0 12px rgba(255,50,30,0.4); }
+
+  .btn-sign {
+    background: #1a1a2e;
+    color: #99aacc;
+    font-size: 13px;
+    padding: 10px 4px;
+    border: 1px solid #2a2a4a;
+  }
+  .btn-sign:hover { background: #222238; color: #bbccee; border-color: #4455aa; box-shadow: 0 0 8px rgba(100,130,220,0.2); }
+
+  /* Base panel buttons */
+  .btn-base {
+    background: #0a1a2a;
+    color: #55aaff;
+    font-size: 11px;
+    padding: 7px 3px;
+    border: 1px solid #154a7a;
+    font-weight: 700;
+  }
+  .btn-base:hover { background: #0d2a40; color: #88ccff; border-color: #2277cc; box-shadow: 0 0 8px rgba(50,130,255,0.3); }
+  .btn-base.active { background: #0a2a40; color: #00ccff; border-color: #00aaff; box-shadow: 0 0 10px rgba(0,170,255,0.4); }
+
+  /* History display */
+  .history-panel {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #335533;
+    min-height: 14px;
+    text-align: right;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="calculator" id="calc">
+
+  <div class="brand-bar">
+    <span class="brand-name">Calc Pro</span>
+    <span class="model-name">fx-SCIENTIFIC</span>
+  </div>
+
+  <!-- DISPLAY -->
+  <div class="display">
+    <div class="mode-bar">
+      <span class="mode-indicator" id="ind-deg">DEG</span>
+      <span class="mode-indicator" id="ind-rad">RAD</span>
+      <span class="mode-indicator" id="ind-2nd">2nd</span>
+      <span class="mode-indicator" id="ind-hyp">HYP</span>
+      <span class="mode-indicator" id="ind-cmplx">CMPLX</span>
+      <span class="mode-indicator" id="ind-eng">ENG</span>
+      <span class="mode-indicator" id="ind-base">BASE</span>
+      <span class="mode-indicator" id="ind-mem">M</span>
+    </div>
+    <div class="history-panel" id="history-line"></div>
+    <div class="expr-line" id="expr-line"><span class="cursor-blink"></span></div>
+    <div class="result-line" id="result-line">0</div>
+  </div>
+
+  <!-- ROW A: Mode buttons (6 cols) -->
+  <div class="btn-row cols-6">
+    <button class="btn-mode" id="btn-cmplx"   onclick="toggleCMPLX()">CMPLX</button>
+    <button class="btn-mode" id="btn-base-mode" onclick="toggleBASE()">BASE</button>
+    <button class="btn-mode" id="btn-eng"     onclick="toggleENG()">ENG</button>
+    <button class="btn-mode" id="btn-sd"      onclick="toggleSD()">S⇔D</button>
+    <button class="btn-mode" id="btn-degrad"  onclick="toggleDegRad()">DEG/RAD</button>
+    <button class="btn-mode" id="btn-2nd"     onclick="toggle2nd()">2nd</button>
+  </div>
+
+  <!-- BASE sub-panel -->
+  <div class="base-panel" id="base-panel">
+    <button class="btn-base active" id="btn-dec" onclick="setBase('DEC')">DEC</button>
+    <button class="btn-base"        id="btn-hex" onclick="setBase('HEX')">HEX</button>
+    <button class="btn-base"        id="btn-bin" onclick="setBase('BIN')">BIN</button>
+    <button class="btn-base"        id="btn-oct" onclick="setBase('OCT')">OCT</button>
+  </div>
+
+  <!-- ROW B: new math (6 cols) -->
+  <div class="btn-row cols-6">
+    <button class="btn-sci" onclick="inputFn('³')">x³</button>
+    <button class="btn-sci" id="btn-hyp" onclick="toggleHYP()">hyp</button>
+    <button class="btn-sci" onclick="inputFn('nPr(')">nPr</button>
+    <button class="btn-sci" onclick="inputFn('nCr(')">nCr</button>
+    <button class="btn-sci" onclick="inputFn('gcd(')">GCD</button>
+    <button class="btn-sci" onclick="inputFn('lcm(')">LCM</button>
+  </div>
+
+  <!-- ROW C: new features (6 cols) -->
+  <div class="btn-row cols-6">
+    <button class="btn-sci" onclick="inputFn('Pol(')">Pol</button>
+    <button class="btn-sci" onclick="inputFn('Rec(')">Rec</button>
+    <button class="btn-sci" onclick="insertRan()">Ran#</button>
+    <button class="btn-sci" onclick="inputFn('RanInt(')">RanInt</button>
+    <button class="btn-sci" onclick="insertAns()">Ans</button>
+    <button class="btn-sci" onclick="inputFn('×10^')">×10ˣ</button>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- ROW D: trig + log (5 cols) -->
+  <div class="btn-row cols-5">
+    <button class="btn-sci" id="btn-sin" onclick="inputTrig('sin')">sin</button>
+    <button class="btn-sci" id="btn-cos" onclick="inputTrig('cos')">cos</button>
+    <button class="btn-sci" id="btn-tan" onclick="inputTrig('tan')">tan</button>
+    <button class="btn-sci" id="btn-log" onclick="inputTrig('log')">log</button>
+    <button class="btn-sci" id="btn-ln"  onclick="inputFn('ln(')">ln</button>
+  </div>
+
+  <!-- ROW E: power/root/pi (5 cols) -->
+  <div class="btn-row cols-5">
+    <button class="btn-sci" id="btn-sq"   onclick="input2nd('x²','√(')">x²</button>
+    <button class="btn-sci" id="btn-sqrt" onclick="inputFn('√(')">√</button>
+    <button class="btn-sci" id="btn-pow"  onclick="inputFn('^')">xʸ</button>
+    <button class="btn-sci" id="btn-inv"  onclick="inputFn('⁻¹')">x⁻¹</button>
+    <button class="btn-sci" onclick="inputConst('π')">π</button>
+  </div>
+
+  <!-- ROW F: parens/e/fact/pct (5 cols) -->
+  <div class="btn-row cols-5">
+    <button class="btn-sci" onclick="inputRaw('(')"> ( </button>
+    <button class="btn-sci" onclick="inputRaw(')')"> ) </button>
+    <button class="btn-sci" onclick="inputConst('e')">e</button>
+    <button class="btn-sci" onclick="inputFn('!')">!</button>
+    <button class="btn-sci" onclick="inputFn('%')">%</button>
+  </div>
+
+  <!-- ROW G: Memory (5 cols) -->
+  <div class="btn-row cols-5">
+    <button class="btn-sci" onclick="memOp('MC')">MC</button>
+    <button class="btn-sci" onclick="memOp('MR')">MR</button>
+    <button class="btn-sci" onclick="memOp('M+')">M+</button>
+    <button class="btn-sci" onclick="memOp('M-')">M-</button>
+    <button class="btn-sci" onclick="memOp('MS')">MS</button>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Utility row: AC, backspace, sign change -->
+  <div class="btn-row cols-3" style="margin-bottom:5px;">
+    <button class="btn-ac"   onclick="allClear()">AC</button>
+    <button class="btn-util" onclick="backspace()">⌫</button>
+    <button class="btn-sign" onclick="toggleSign()">±</button>
+  </div>
+
+  <!-- ROW H-K: numpad (4 cols) -->
+  <div class="btn-row cols-4">
+    <button class="btn-num" onclick="inputDigit('7')">7</button>
+    <button class="btn-num" onclick="inputDigit('8')">8</button>
+    <button class="btn-num" onclick="inputDigit('9')">9</button>
+    <button class="btn-op"  onclick="inputOp('÷')">÷</button>
+  </div>
+  <div class="btn-row cols-4">
+    <button class="btn-num" onclick="inputDigit('4')">4</button>
+    <button class="btn-num" onclick="inputDigit('5')">5</button>
+    <button class="btn-num" onclick="inputDigit('6')">6</button>
+    <button class="btn-op"  onclick="inputOp('×')">×</button>
+  </div>
+  <div class="btn-row cols-4">
+    <button class="btn-num" onclick="inputDigit('1')">1</button>
+    <button class="btn-num" onclick="inputDigit('2')">2</button>
+    <button class="btn-num" onclick="inputDigit('3')">3</button>
+    <button class="btn-op"  onclick="inputOp('-')">−</button>
+  </div>
+  <div class="btn-row cols-4">
+    <button class="btn-num" onclick="inputDigit('0')">0</button>
+    <button class="btn-num" onclick="inputDot()">.</button>
+    <button class="btn-op" style="font-size:13px;padding:12px 2px;" onclick="inputDigit('i')" id="btn-i">i</button>
+    <button class="btn-op"  onclick="inputOp('+')">+</button>
+  </div>
+
+  <!-- Equals row -->
+  <div class="btn-row cols-4" style="margin-top:5px;">
+    <button class="btn-sci" style="font-size:11px;padding:10px;" onclick="historyNav(-1)">▲Hist</button>
+    <button class="btn-sci" style="font-size:11px;padding:10px;" onclick="historyNav(1)">▼Hist</button>
+    <button class="btn-equals" onclick="calculate()">=</button>
+  </div>
+
+</div>
+
+<script>
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let expr = '';
+let result = '0';
+let lastAnswer = 0;
+let memory = 0;
+let memHasValue = false;
+
+let modeRad = false;
+let mode2nd = false;
+let modeHyp = false;
+let modeCMPLX = false;
+let modeENG = false;
+let modeBASE = false;
+let modeSD = false;
+let currentBase = 'DEC';
+
+let history = [];
+let histIdx = -1;
+let lastDecimal = null; // for S⇔D toggle
+
+// ─── COMPLEX CLASS ────────────────────────────────────────────────────────────
+class Complex {
+  constructor(re, im = 0) { this.re = re; this.im = im; }
+  add(b) { return new Complex(this.re + b.re, this.im + b.im); }
+  sub(b) { return new Complex(this.re - b.re, this.im - b.im); }
+  mul(b) {
+    return new Complex(
+      this.re * b.re - this.im * b.im,
+      this.re * b.im + this.im * b.re
+    );
+  }
+  div(b) {
+    let d = b.re * b.re + b.im * b.im;
+    if (d === 0) return new Complex(NaN, NaN);
+    return new Complex(
+      (this.re * b.re + this.im * b.im) / d,
+      (this.im * b.re - this.re * b.im) / d
+    );
+  }
+  pow(b) {
+    if (b.im === 0 && Number.isInteger(b.re) && Math.abs(b.re) <= 1000) {
+      let result = new Complex(1, 0);
+      let n = Math.abs(b.re);
+      for (let i = 0; i < n; i++) result = result.mul(this);
+      return b.re < 0 ? new Complex(1, 0).div(result) : result;
+    }
+    let r = Math.sqrt(this.re * this.re + this.im * this.im);
+    if (r === 0) return new Complex(0, 0);
+    let theta = Math.atan2(this.im, this.re);
+    let newR = Math.pow(r, b.re) * Math.exp(-b.im * theta);
+    let newTheta = b.re * theta + b.im * Math.log(r);
+    return new Complex(newR * Math.cos(newTheta), newR * Math.sin(newTheta));
+  }
+  toString() {
+    const fmt = n => {
+      if (Math.abs(n) < 1e-10) return '0';
+      let s = parseFloat(n.toPrecision(10)).toString();
+      return s;
+    };
+    let re = fmt(this.re), im = fmt(this.im);
+    if (im === '0') return re;
+    if (re === '0') return im === '1' ? 'i' : (im === '-1' ? '-i' : im + 'i');
+    let imDisp = (im === '1') ? 'i' : (im === '-1' ? '-i' : im + 'i');
+    return re + (this.im >= 0 ? '+' : '') + imDisp;
+  }
+}
+
+// ─── MATH HELPERS ─────────────────────────────────────────────────────────────
+function factorial(n) {
+  n = Math.round(n);
+  if (n < 0 || n > 170) return NaN;
+  if (n <= 1) return 1;
+  let r = 1;
+  for (let i = 2; i <= n; i++) r *= i;
+  return r;
+}
+function nPr(n, r) {
+  n = Math.round(n); r = Math.round(r);
+  if (r < 0 || r > n) return NaN;
+  return factorial(n) / factorial(n - r);
+}
+function nCr(n, r) {
+  n = Math.round(n); r = Math.round(r);
+  if (r < 0 || r > n) return NaN;
+  return factorial(n) / (factorial(r) * factorial(n - r));
+}
+function gcd(a, b) {
+  a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b));
+  while (b) { let t = b; b = a % b; a = t; }
+  return a;
+}
+function lcm(a, b) {
+  let g = gcd(a, b);
+  return g === 0 ? 0 : Math.abs(a * b) / g;
+}
+
+function toFraction(decimal) {
+  let tolerance = 1e-7;
+  let maxDenom = 1000;
+  let negative = decimal < 0;
+  decimal = Math.abs(decimal);
+  let intPart = Math.floor(decimal);
+  let fracPart = decimal - intPart;
+  if (fracPart < tolerance) return (negative ? '-' : '') + intPart;
+  for (let q = 1; q <= maxDenom; q++) {
+    let p = Math.round(fracPart * q);
+    if (Math.abs(fracPart - p / q) < tolerance) {
+      let num = intPart * q + p;
+      let den = q;
+      let g = gcd(num, den);
+      return (negative ? '-' : '') + (num / g) + '/' + (den / g);
+    }
+  }
+  return null;
+}
+
+function toENG(value) {
+  if (value === 0) return '0';
+  if (!isFinite(value)) return value.toString();
+  let sign = value < 0 ? '-' : '';
+  let absVal = Math.abs(value);
+  let exp = Math.floor(Math.log10(absVal));
+  let engExp = Math.floor(exp / 3) * 3;
+  let mantissa = absVal / Math.pow(10, engExp);
+  let mStr = parseFloat(mantissa.toPrecision(7)).toString();
+  if (engExp === 0) return sign + mStr;
+  return sign + mStr + '×10^' + engExp;
+}
+
+function formatNumber(n) {
+  if (typeof n === 'string') return n;
+  if (!isFinite(n)) return isNaN(n) ? 'Error' : (n > 0 ? 'Infinity' : '-Infinity');
+  if (modeENG) return toENG(n);
+  // Avoid floating point noise
+  let s = parseFloat(n.toPrecision(12)).toString();
+  // Add commas for large numbers? No, keep clean.
+  return s;
+}
+
+function baseConvert(val, base) {
+  let n = Math.round(val);
+  if (!isFinite(n)) return 'Error';
+  switch (base) {
+    case 'HEX': return (n >>> 0).toString(16).toUpperCase();
+    case 'BIN': return (n >>> 0).toString(2);
+    case 'OCT': return (n >>> 0).toString(8);
+    default:     return n.toString(10);
+  }
+}
+
+// ─── EXPRESSION EVALUATOR ─────────────────────────────────────────────────────
+function evaluateExpr(rawExpr) {
+  if (!rawExpr.trim()) return 0;
+
+  // ── Complex mode ──────────────────────────────────────────────────────────
+  if (modeCMPLX) {
+    return evaluateComplex(rawExpr);
+  }
+
+  let e = rawExpr;
+
+  // Special multi-arg functions (Pol, Rec, RanInt, nPr, nCr, gcd, lcm)
+  e = e.replace(/Pol\(([^,)]+),([^)]+)\)/g, (_, x, y) => {
+    let xv = evaluate1(x), yv = evaluate1(y);
+    let r = Math.sqrt(xv*xv + yv*yv);
+    let theta = modeRad ? Math.atan2(yv, xv) : Math.atan2(yv, xv) * 180 / Math.PI;
+    return '"r=' + fmtPol(r) + ', θ=' + fmtPol(theta) + (modeRad ? '' : '°') + '"';
+  });
+  e = e.replace(/Rec\(([^,)]+),([^)]+)\)/g, (_, r, t) => {
+    let rv = evaluate1(r), tv = evaluate1(t);
+    let rad = modeRad ? tv : tv * Math.PI / 180;
+    let x = rv * Math.cos(rad), y = rv * Math.sin(rad);
+    return '"x=' + fmtPol(x) + ', y=' + fmtPol(y) + '"';
+  });
+  e = e.replace(/RanInt\(([^,)]+),([^)]+)\)/g, (_, a, b) => {
+    let av = evaluate1(a), bv = evaluate1(b);
+    return Math.floor(Math.random() * (bv - av + 1)) + av;
+  });
+  e = e.replace(/nPr\(([^,)]+),([^)]+)\)/g, (_, n, r) => nPr(evaluate1(n), evaluate1(r)));
+  e = e.replace(/nCr\(([^,)]+),([^)]+)\)/g, (_, n, r) => nCr(evaluate1(n), evaluate1(r)));
+  e = e.replace(/gcd\(([^,)]+),([^)]+)\)/g, (_, a, b) => gcd(evaluate1(a), evaluate1(b)));
+  e = e.replace(/lcm\(([^,)]+),([^)]+)\)/g, (_, a, b) => lcm(evaluate1(a), evaluate1(b)));
+
+  // If Pol/Rec returned a string result, extract it
+  if (/^".*"$/.test(e.trim())) return e.slice(1, -1);
+
+  // Single-arg special syntax
+  // x³ suffix
+  e = e.replace(/([0-9πe.]+|[)\w]+)³/g, (_, base) => {
+    try { let v = evaluate1(base); return '(' + (v*v*v) + ')'; } catch(ex) { return _; }
+  });
+  // ⁻¹ suffix
+  e = e.replace(/([0-9πe.]+|[)\w]+)⁻¹/g, (_, base) => {
+    try { let v = evaluate1(base); return '(' + (1/v) + ')'; } catch(ex) { return _; }
+  });
+  // x² suffix
+  e = e.replace(/([0-9πe.]+|[)\w]+)²/g, (_, base) => {
+    try { let v = evaluate1(base); return '(' + (v*v) + ')'; } catch(ex) { return _; }
+  });
+
+  // factorial
+  e = e.replace(/([0-9]+)!/g, (_, n) => factorial(parseInt(n)));
+
+  // percentage: handle X% alone → X/100
+  e = e.replace(/([0-9.]+)%/g, (_, n) => '(' + parseFloat(n) + '/100)');
+
+  // Constants
+  e = e.replace(/\bπ\b/g, '(' + Math.PI + ')');
+  e = e.replace(/\be\b/g, '(' + Math.E + ')');
+
+  // Operators
+  e = e.replace(/÷/g, '/');
+  e = e.replace(/×10\^/g, '*Math.pow(10,');
+  e = e.replace(/×/g, '*');
+  e = e.replace(/−/g, '-');
+
+  // Trig / hyperbolic functions
+  const toRad = modeRad ? '(' : ('(' + Math.PI + '/180)*');
+  const fromRad = modeRad ? '' : ('*' + (180 / Math.PI));
+
+  // Inverse hyp
+  e = e.replace(/\basinh\(/g, 'Math.asinh(');
+  e = e.replace(/\bacosh\(/g, 'Math.acosh(');
+  e = e.replace(/\batanh\(/g, 'Math.atanh(');
+  // Hyp
+  e = e.replace(/\bsinh\(/g, 'Math.sinh(');
+  e = e.replace(/\bcosh\(/g, 'Math.cosh(');
+  e = e.replace(/\btanh\(/g, 'Math.tanh(');
+  // Inverse trig (asin returns radians, convert if DEG mode)
+  e = e.replace(/\basin\(/g,  '(Math.asin(');
+  e = e.replace(/\bacos\(/g,  '(Math.acos(');
+  e = e.replace(/\batan\(/g,  '(Math.atan(');
+  if (!modeRad) {
+    // close the extra paren + convert
+    e = e.replace(/\(Math\.asin\(/g, '(Math.asin(');
+    e = e.replace(/\(Math\.acos\(/g, '(Math.acos(');
+    e = e.replace(/\(Math\.atan\(/g, '(Math.atan(');
+    // We'll handle conversion differently below
+  }
+  // Trig  (DEG → rad before calling)
+  if (!modeRad) {
+    e = e.replace(/\bsin\(/g, 'Math.sin(' + Math.PI + '/180*(');
+    e = e.replace(/\bcos\(/g, 'Math.cos(' + Math.PI + '/180*(');
+    e = e.replace(/\btan\(/g, 'Math.tan(' + Math.PI + '/180*(');
+    // close extra paren: asin etc. already replaced; handle asin deg→deg
+    e = e.replace(/\(Math\.asin\(([^)]+)\)\)/g, (_, inner) => {
+      try { let v = evaluate1(inner); return '(' + (Math.asin(v) * 180 / Math.PI) + ')'; } catch(ex) { return _; }
+    });
+    e = e.replace(/\(Math\.acos\(([^)]+)\)\)/g, (_, inner) => {
+      try { let v = evaluate1(inner); return '(' + (Math.acos(v) * 180 / Math.PI) + ')'; } catch(ex) { return _; }
+    });
+    e = e.replace(/\(Math\.atan\(([^)]+)\)\)/g, (_, inner) => {
+      try { let v = evaluate1(inner); return '(' + (Math.atan(v) * 180 / Math.PI) + ')'; } catch(ex) { return _; }
+    });
+  } else {
+    e = e.replace(/\bsin\(/g, 'Math.sin(');
+    e = e.replace(/\bcos\(/g, 'Math.cos(');
+    e = e.replace(/\btan\(/g, 'Math.tan(');
+  }
+  e = e.replace(/\bln\(/g, 'Math.log(');
+  e = e.replace(/\blog\(/g, 'Math.log10(');
+  e = e.replace(/√\(/g, 'Math.sqrt(');
+
+  // Power operator (replace ^ with **)
+  e = e.replace(/\^/g, '**');
+
+  // Auto-close unclosed parentheses
+  let opens = (e.match(/\(/g) || []).length;
+  let closes = (e.match(/\)/g) || []).length;
+  for (let i = 0; i < opens - closes; i++) e += ')';
+
+  // Evaluate
+  try {
+    // eslint-disable-next-line no-new-func
+    let val = Function('"use strict"; return (' + e + ')')();
+    if (typeof val === 'string') return val;
+    return val;
+  } catch(ex) {
+    throw new Error('Syntax Error');
+  }
+}
+
+function evaluate1(s) {
+  // Simple evaluation for inner expressions (no complex)
+  let tmp = modeCMPLX;
+  modeCMPLX = false;
+  let v = evaluateExpr(s.trim());
+  modeCMPLX = tmp;
+  return typeof v === 'number' ? v : parseFloat(v);
+}
+
+function fmtPol(n) {
+  if (Math.abs(n) < 1e-10) return '0';
+  return parseFloat(n.toPrecision(8)).toString();
+}
+
+// ─── COMPLEX EVALUATOR ────────────────────────────────────────────────────────
+function evaluateComplex(rawExpr) {
+  // Tokenise and parse complex arithmetic
+  // First, resolve any real-valued special functions, then do complex arithmetic
+  let e = rawExpr;
+
+  // Replace π and e constants
+  e = e.replace(/\bπ\b/g, Math.PI.toString());
+  e = e.replace(/\be\b/g, Math.E.toString());
+  e = e.replace(/÷/g, '/');
+  e = e.replace(/×/g, '*');
+  e = e.replace(/−/g, '-');
+
+  // Parse complex expression: supports a+bi, a-bi, bi, i
+  // Strategy: tokenise into nums, i tokens, operators, parens
+  // then evaluate using recursive descent
+
+  return parseComplexExpr(e);
+}
+
+function parseComplexExpr(s) {
+  s = s.trim();
+  let pos = 0;
+
+  function peek() { return s[pos]; }
+  function consume() { return s[pos++]; }
+  function skipWS() { while (pos < s.length && s[pos] === ' ') pos++; }
+
+  function parseNum() {
+    skipWS();
+    // number: digits, dot, optional exponent
+    let start = pos;
+    if (peek() === '-' || peek() === '+') pos++;
+    while (pos < s.length && /[0-9.]/.test(peek())) pos++;
+    if (pos < s.length && (peek() === 'e' || peek() === 'E')) {
+      pos++;
+      if (peek() === '+' || peek() === '-') pos++;
+      while (pos < s.length && /[0-9]/.test(peek())) pos++;
+    }
+    let str = s.slice(start, pos);
+    return str ? parseFloat(str) : NaN;
+  }
+
+  function parsePrimary() {
+    skipWS();
+    if (peek() === '(') {
+      pos++; // consume (
+      let val = parseAddSub();
+      skipWS();
+      if (peek() === ')') pos++;
+      return val;
+    }
+    // unary minus
+    if (peek() === '-') {
+      pos++;
+      let v = parsePrimary();
+      if (v instanceof Complex) return new Complex(-v.re, -v.im);
+      return new Complex(-v, 0);
+    }
+    // unary plus
+    if (peek() === '+') {
+      pos++;
+      return parsePrimary();
+    }
+    // 'i' standalone
+    if (peek() === 'i') {
+      pos++;
+      return new Complex(0, 1);
+    }
+    // number possibly followed by 'i'
+    let start = pos;
+    while (pos < s.length && /[0-9.]/.test(peek())) pos++;
+    // exponent
+    if (pos < s.length && (s[pos] === 'e' || s[pos] === 'E')) {
+      pos++;
+      if (pos < s.length && (s[pos] === '+' || s[pos] === '-')) pos++;
+      while (pos < s.length && /[0-9]/.test(peek())) pos++;
+    }
+    let numStr = s.slice(start, pos);
+    if (numStr === '') {
+      // nothing parsed, error
+      return new Complex(0, 0);
+    }
+    let n = parseFloat(numStr);
+    skipWS();
+    if (peek() === 'i') {
+      pos++;
+      return new Complex(0, n);
+    }
+    return new Complex(n, 0);
+  }
+
+  function parsePow() {
+    let base = parsePrimary();
+    skipWS();
+    while (peek() === '*' && s[pos+1] === '*') {
+      pos += 2;
+      let exp = parsePrimary();
+      let b = (exp instanceof Complex) ? exp : new Complex(exp, 0);
+      let a = (base instanceof Complex) ? base : new Complex(base, 0);
+      base = a.pow(b);
+    }
+    if (peek() === '^') {
+      pos++;
+      let exp = parsePrimary();
+      let b = (exp instanceof Complex) ? exp : new Complex(exp, 0);
+      let a = (base instanceof Complex) ? base : new Complex(base, 0);
+      base = a.pow(b);
+    }
+    return base;
+  }
+
+  function parseMulDiv() {
+    let left = parsePow();
+    skipWS();
+    while (pos < s.length && (peek() === '*' || peek() === '/')) {
+      // check it's not **
+      if (peek() === '*' && s[pos+1] === '*') break;
+      let op = consume();
+      let right = parsePow();
+      let a = (left instanceof Complex) ? left : new Complex(left, 0);
+      let b = (right instanceof Complex) ? right : new Complex(right, 0);
+      left = op === '*' ? a.mul(b) : a.div(b);
+    }
+    return left;
+  }
+
+  function parseAddSub() {
+    let left = parseMulDiv();
+    skipWS();
+    while (pos < s.length && (peek() === '+' || peek() === '-')) {
+      let op = consume();
+      let right = parseMulDiv();
+      let a = (left instanceof Complex) ? left : new Complex(left, 0);
+      let b = (right instanceof Complex) ? right : new Complex(right, 0);
+      left = op === '+' ? a.add(b) : a.sub(b);
+    }
+    return left;
+  }
+
+  try {
+    let result = parseAddSub();
+    if (result instanceof Complex) return result;
+    return new Complex(result, 0);
+  } catch(ex) {
+    throw new Error('Complex Syntax Error');
+  }
+}
+
+// ─── DISPLAY UPDATES ──────────────────────────────────────────────────────────
+function updateDisplay() {
+  let exprEl = document.getElementById('expr-line');
+  let resEl  = document.getElementById('result-line');
+
+  // Show cursor in expr
+  exprEl.innerHTML = escHTML(expr || '') + '<span class="cursor-blink"></span>';
+  // Scroll to end
+  exprEl.scrollLeft = exprEl.scrollWidth;
+
+  // Result line
+  let res = result;
+  resEl.className = 'result-line';
+  if (res.length > 20) resEl.classList.add('xsmall');
+  else if (res.length > 12) resEl.classList.add('small');
+  resEl.textContent = res;
+
+  // Mode indicators
+  setInd('ind-deg',   !modeRad);
+  setInd('ind-rad',   modeRad);
+  setInd('ind-2nd',   mode2nd);
+  setInd('ind-hyp',   modeHyp);
+  setInd('ind-cmplx', modeCMPLX);
+  setInd('ind-eng',   modeENG);
+  setInd('ind-base',  modeBASE);
+  setInd('ind-mem',   memHasValue);
+
+  // Button labels for 2nd / hyp
+  updateButtonLabels();
+
+  // Base panel
+  document.getElementById('base-panel').className = 'base-panel' + (modeBASE ? ' visible' : '');
+
+  // Base active button
+  ['DEC','HEX','BIN','OCT'].forEach(b => {
+    let el = document.getElementById('btn-' + b.toLowerCase());
+    if (el) el.className = 'btn-base' + (currentBase === b ? ' active' : '');
+  });
+
+  // i button visibility
+  document.getElementById('btn-i').style.opacity = modeCMPLX ? '1' : '0.3';
+}
+
+function setInd(id, active) {
+  let el = document.getElementById(id);
+  if (active) el.classList.add('active');
+  else el.classList.remove('active');
+}
+
+function updateButtonLabels() {
+  let sinBtn = document.getElementById('btn-sin');
+  let cosBtn = document.getElementById('btn-cos');
+  let tanBtn = document.getElementById('btn-tan');
+  let sqBtn  = document.getElementById('btn-sq');
+
+  if (modeHyp && mode2nd) {
+    sinBtn.textContent = 'asinh'; cosBtn.textContent = 'acosh'; tanBtn.textContent = 'atanh';
+  } else if (modeHyp) {
+    sinBtn.textContent = 'sinh'; cosBtn.textContent = 'cosh'; tanBtn.textContent = 'tanh';
+  } else if (mode2nd) {
+    sinBtn.textContent = 'sin⁻¹'; cosBtn.textContent = 'cos⁻¹'; tanBtn.textContent = 'tan⁻¹';
+  } else {
+    sinBtn.textContent = 'sin'; cosBtn.textContent = 'cos'; tanBtn.textContent = 'tan';
+  }
+
+  sqBtn.textContent = mode2nd ? '√' : 'x²';
+
+  // Toggle states
+  document.getElementById('btn-2nd').className   = 'btn-mode' + (mode2nd ? ' toggled' : '');
+  document.getElementById('btn-hyp').className   = 'btn-sci'  + (modeHyp ? ' toggled' : '');
+  document.getElementById('btn-cmplx').className = 'btn-mode' + (modeCMPLX ? ' toggled' : '');
+  document.getElementById('btn-eng').className   = 'btn-mode' + (modeENG ? ' toggled' : '');
+  document.getElementById('btn-base-mode').className = 'btn-mode' + (modeBASE ? ' toggled' : '');
+}
+
+function escHTML(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ─── INPUT HANDLERS ───────────────────────────────────────────────────────────
+function inputDigit(d) {
+  // In BASE mode, restrict valid digits
+  if (modeBASE) {
+    let valid = { BIN: /[01]/, OCT: /[0-7]/, DEC: /[0-9]/, HEX: /[0-9A-Fa-f]/ };
+    if (!valid[currentBase].test(d)) { flash(); return; }
+  }
+  if (!modeCMPLX && d === 'i') { flash(); return; }
+  expr += d;
+  result = '0';
+  modeSD = false;
+  updateDisplay();
+}
+
+function inputDot() {
+  // Don't add second dot in current number segment
+  expr += '.';
+  result = '0';
+  updateDisplay();
+}
+
+function inputOp(op) {
+  expr += op;
+  result = '0';
+  modeSD = false;
+  updateDisplay();
+}
+
+function inputRaw(s) {
+  expr += s;
+  result = '0';
+  updateDisplay();
+}
+
+function inputFn(fn) {
+  // Special suffix handling
+  if (fn === '!' || fn === '%' || fn === '²' || fn === '³' || fn === '⁻¹') {
+    expr += fn;
+  } else if (fn === '^') {
+    expr += '^';
+  } else {
+    expr += fn;
+  }
+  result = '0';
+  updateDisplay();
+}
+
+function inputConst(c) {
+  expr += c;
+  result = '0';
+  updateDisplay();
+}
+
+function inputTrig(fn) {
+  let f = fn;
+  if (fn === 'log' || fn === 'ln') {
+    expr += fn + '(';
+  } else {
+    // sin, cos, tan with 2nd/hyp modifications
+    if (modeHyp && mode2nd) {
+      f = 'a' + fn + 'h'; // asinh, acosh, atanh
+    } else if (modeHyp) {
+      f = fn + 'h'; // sinh, cosh, tanh
+    } else if (mode2nd) {
+      f = 'a' + fn; // asin, acos, atan
+    }
+    expr += f + '(';
+  }
+  result = '0';
+  updateDisplay();
+}
+
+function input2nd(normal, second) {
+  expr += (mode2nd ? second : normal);
+  result = '0';
+  updateDisplay();
+}
+
+function insertAns() {
+  expr += lastAnswer.toString();
+  result = '0';
+  updateDisplay();
+}
+
+function insertRan() {
+  let r = Math.random();
+  expr += parseFloat(r.toPrecision(4)).toString();
+  result = '0';
+  updateDisplay();
+}
+
+function inputPow10() {
+  expr += '×10^';
+  result = '0';
+  updateDisplay();
+}
+
+function backspace() {
+  // Remove last "token" — handle multi-char tokens
+  let multiChar = ['asinh(','acosh(','atanh(','sinh(','cosh(','tanh(','asin(','acos(','atan(','sin(','cos(','tan(','log(','ln(','√(','nPr(','nCr(','gcd(','lcm(','Pol(','Rec(','RanInt(','×10^','π','⁻¹','²','³'];
+  let removed = false;
+  for (let tok of multiChar) {
+    if (expr.endsWith(tok)) {
+      expr = expr.slice(0, -tok.length);
+      removed = true;
+      break;
+    }
+  }
+  if (!removed) expr = expr.slice(0, -1);
+  result = '0';
+  updateDisplay();
+}
+
+function allClear() {
+  expr = '';
+  result = '0';
+  modeSD = false;
+  lastDecimal = null;
+  updateDisplay();
+}
+
+function toggleSign() {
+  if (!expr) {
+    expr = '-';
+  } else if (expr.startsWith('-')) {
+    expr = expr.slice(1);
+  } else {
+    expr = '-(' + expr + ')';
+  }
+  updateDisplay();
+}
+
+// ─── CALCULATION ──────────────────────────────────────────────────────────────
+function calculate() {
+  if (!expr.trim()) return;
+  try {
+    let val = evaluateExpr(expr);
+    let displayVal;
+
+    if (val instanceof Complex) {
+      displayVal = val.toString();
+      lastAnswer = val.re; // store real part for Ans
+      lastDecimal = null;
+    } else if (typeof val === 'string') {
+      displayVal = val;
+      lastDecimal = null;
+      lastAnswer = NaN;
+    } else {
+      lastAnswer = val;
+      lastDecimal = val;
+      if (modeBASE) {
+        displayVal = baseConvert(val, currentBase);
+      } else if (modeENG) {
+        displayVal = toENG(val);
+      } else {
+        displayVal = formatNumber(val);
+      }
+    }
+
+    // History
+    history.push({ expr: expr, result: displayVal });
+    if (history.length > 50) history.shift();
+    histIdx = history.length; // point past end
+
+    document.getElementById('history-line').textContent = expr + ' =';
+    result = displayVal;
+    expr = '';
+    modeSD = false;
+    updateDisplay();
+  } catch(ex) {
+    result = ex.message || 'Error';
+    updateDisplay();
+    setTimeout(() => { result = '0'; updateDisplay(); }, 1500);
+  }
+}
+
+// ─── HISTORY NAVIGATION ───────────────────────────────────────────────────────
+function historyNav(dir) {
+  if (history.length === 0) return;
+  histIdx = Math.max(0, Math.min(history.length - 1, histIdx + dir));
+  let h = history[histIdx];
+  expr = h.expr;
+  result = h.result;
+  updateDisplay();
+}
+
+// ─── MEMORY ───────────────────────────────────────────────────────────────────
+function memOp(op) {
+  switch(op) {
+    case 'MC':
+      memory = 0; memHasValue = false;
+      break;
+    case 'MR':
+      expr += memory.toString();
+      break;
+    case 'MS':
+      if (lastDecimal !== null) { memory = lastDecimal; memHasValue = true; }
+      else {
+        try { memory = parseFloat(result); memHasValue = true; } catch(e) {}
+      }
+      break;
+    case 'M+':
+      try {
+        let v = lastDecimal !== null ? lastDecimal : evaluate1(result);
+        memory += v; memHasValue = true;
+      } catch(e) {}
+      break;
+    case 'M-':
+      try {
+        let v = lastDecimal !== null ? lastDecimal : evaluate1(result);
+        memory -= v; memHasValue = true;
+      } catch(e) {}
+      break;
+  }
+  updateDisplay();
+}
+
+// ─── MODE TOGGLES ─────────────────────────────────────────────────────────────
+function toggleDegRad() {
+  modeRad = !modeRad;
+  updateDisplay();
+}
+function toggle2nd() {
+  mode2nd = !mode2nd;
+  updateDisplay();
+}
+function toggleHYP() {
+  modeHyp = !modeHyp;
+  updateDisplay();
+}
+function toggleCMPLX() {
+  modeCMPLX = !modeCMPLX;
+  updateDisplay();
+}
+function toggleENG() {
+  modeENG = !modeENG;
+  if (modeENG && lastDecimal !== null) {
+    result = toENG(lastDecimal);
+    updateDisplay();
+  } else if (!modeENG && lastDecimal !== null) {
+    result = formatNumber(lastDecimal);
+    updateDisplay();
+  } else {
+    updateDisplay();
+  }
+}
+function toggleBASE() {
+  modeBASE = !modeBASE;
+  if (modeBASE) currentBase = 'DEC';
+  if (modeBASE && lastDecimal !== null) {
+    result = baseConvert(lastDecimal, currentBase);
+  } else if (!modeBASE && lastDecimal !== null) {
+    result = formatNumber(lastDecimal);
+  }
+  updateDisplay();
+}
+function setBase(base) {
+  currentBase = base;
+  if (lastDecimal !== null) {
+    result = baseConvert(lastDecimal, currentBase);
+    updateDisplay();
+  }
+  updateDisplay();
+}
+function toggleSD() {
+  if (lastDecimal === null) return;
+  if (!modeSD) {
+    let frac = toFraction(lastDecimal);
+    if (frac) {
+      result = frac;
+      modeSD = true;
+    }
+  } else {
+    result = formatNumber(lastDecimal);
+    modeSD = false;
+  }
+  updateDisplay();
+}
+
+function flash() {
+  let resEl = document.getElementById('result-line');
+  resEl.style.color = '#ff4433';
+  setTimeout(() => { resEl.style.color = ''; }, 300);
+}
+
+// ─── KEYBOARD SUPPORT ─────────────────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+  if (e.key >= '0' && e.key <= '9') { inputDigit(e.key); return; }
+  if (e.key === '+') { inputOp('+'); return; }
+  if (e.key === '-') { inputOp('-'); return; }
+  if (e.key === '*') { inputOp('×'); return; }
+  if (e.key === '/') { e.preventDefault(); inputOp('÷'); return; }
+  if (e.key === '^') { inputFn('^'); return; }
+  if (e.key === '(') { inputRaw('('); return; }
+  if (e.key === ')') { inputRaw(')'); return; }
+  if (e.key === '.') { inputDot(); return; }
+  if (e.key === '%') { inputFn('%'); return; }
+  if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); calculate(); return; }
+  if (e.key === 'Backspace') { backspace(); return; }
+  if (e.key === 'Escape') { allClear(); return; }
+  if (e.key === 'i' && modeCMPLX) { inputDigit('i'); return; }
+});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+updateDisplay();
+</script>
+</body>
+</html>
