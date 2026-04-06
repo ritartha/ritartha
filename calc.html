@@ -645,12 +645,18 @@ function evaluateExpr(rawExpr) {
   // percentage: handle X% alone → X/100
   e = e.replace(/([0-9.]+)%/g, (_, n) => '(' + parseFloat(n) + '/100)');
 
-  // Constants
-  e = e.replace(/\bπ\b/g, '(' + Math.PI + ')');
+  // Constants (π is non-ASCII so cannot use \b; use lookahead/lookbehind instead)
+  e = e.replace(/π/g, '(' + Math.PI + ')');
+  // Replace standalone 'e' (the constant) — must not match inside words like 'asen','deg','e' in trig names.
+  // At this point all trig/function names have already been replaced or are yet to be replaced as /\bXXX\(/.
+  // Safe to replace \be\b here because trig letters like sin/cos/tan/ln etc. are not 'e' alone.
   e = e.replace(/\be\b/g, '(' + Math.E + ')');
 
   // Operators
   e = e.replace(/÷/g, '/');
+  // ×10^N → *(10**N) — capture the integer/decimal exponent so auto-close parens don't interfere
+  e = e.replace(/×10\^(-?[0-9]+(\.[0-9]*)?)/g, (_, exp) => '*(10**' + exp + ')');
+  // Fallback: any remaining ×10^ without a captured number (should not normally occur)
   e = e.replace(/×10\^/g, '*Math.pow(10,');
   e = e.replace(/×/g, '*');
   e = e.replace(/−/g, '-');
@@ -698,8 +704,8 @@ function evaluateExpr(rawExpr) {
     e = e.replace(/\bcos\(/g, 'Math.cos(');
     e = e.replace(/\btan\(/g, 'Math.tan(');
   }
-  e = e.replace(/\bln\(/g, 'Math.log(');
   e = e.replace(/\blog\(/g, 'Math.log10(');
+  e = e.replace(/\bln\(/g, 'Math.log(');
   e = e.replace(/√\(/g, 'Math.sqrt(');
 
   // Power operator (replace ^ with **)
@@ -745,7 +751,7 @@ function evaluateComplex(rawExpr) {
   let e = rawExpr;
 
   // Replace π and e constants
-  e = e.replace(/\bπ\b/g, Math.PI.toString());
+  e = e.replace(/π/g, Math.PI.toString());
   e = e.replace(/\be\b/g, Math.E.toString());
   e = e.replace(/÷/g, '/');
   e = e.replace(/×/g, '*');
